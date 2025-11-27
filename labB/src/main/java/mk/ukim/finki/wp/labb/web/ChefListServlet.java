@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mk.ukim.finki.wp.labb.model.Chef;
 import mk.ukim.finki.wp.labb.service.ChefService;
-import org.springframework.stereotype.Component;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.web.IWebExchange;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 @WebServlet(name = "ChefListServlet", urlPatterns = "/listChefs")
 public class ChefListServlet extends HttpServlet {
     private final ChefService chefService;
