@@ -1,14 +1,15 @@
-package mk.ukim.finki.wp.lab.repository;
+package mk.ukim.finki.wp.lab.repository.mock.impl;
 
 import mk.ukim.finki.wp.lab.bootstrap.DataHolder;
 import mk.ukim.finki.wp.lab.model.Author;
 import mk.ukim.finki.wp.lab.model.Book;
+import mk.ukim.finki.wp.lab.repository.mock.InMemoryBookRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class InMemoryBookRepository implements BookRepository {
+public class InMemoryBookRepositoryImpl implements InMemoryBookRepository {
     @Override
     public List<Book> findAll() {
         return DataHolder.books;

@@ -74,14 +74,14 @@ public class BookController {
     @GetMapping("/book-form")
     public String getAddBookPage(Model model) {
         model.addAttribute("authors", authorService.findAll());
-        model.addAttribute("book", null);
+        model.addAttribute("book", new Book());
         return "book-form";
     }
 
     @GetMapping("/book-form/{id}")
     public String getEditBookForm(@PathVariable Long id, Model model) {
         Book book = bookService.findById(id);
-        if(id == null) {
+        if(book == null) {
             return "redirect:/books?error=BookNotFound";
         }
         model.addAttribute("book", book);

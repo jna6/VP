@@ -1,15 +1,22 @@
 package mk.ukim.finki.wp.lab.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter @AllArgsConstructor
+@Entity
+@Table(name="books")
+@Getter @Setter
+@AllArgsConstructor
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String genre;
     private double averageRating;
-    private Long id;
+    @ManyToOne
     private Author author;
 
     public Book(String title, String genre, double averageRating) {
@@ -17,5 +24,15 @@ public class Book {
         this.title = title;
         this.genre = genre;
         this.averageRating = averageRating;
+    }
+    public Book(String title, String genre, double averageRating, Author author) {
+        this.id = (long) (Math.random() * 1000);
+        this.title = title;
+        this.genre = genre;
+        this.averageRating = averageRating;
+        this.author = author;
+    }
+
+    public Book() {
     }
 }

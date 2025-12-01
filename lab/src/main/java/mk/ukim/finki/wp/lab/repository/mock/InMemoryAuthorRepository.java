@@ -1,4 +1,4 @@
-package mk.ukim.finki.wp.lab.repository;
+package mk.ukim.finki.wp.lab.repository.mock;
 
 import jakarta.annotation.PostConstruct;
 import mk.ukim.finki.wp.lab.bootstrap.DataHolder;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @DependsOn("dataHolder")
-public class AuthorRepository {
+public class InMemoryAuthorRepository {
 
     private final List<Author> authors = new ArrayList<>();
     @PostConstruct

@@ -1,7 +1,6 @@
 package mk.ukim.finki.wp.lab.web.controller;
 
 import mk.ukim.finki.wp.lab.model.Author;
-import mk.ukim.finki.wp.lab.repository.AuthorRepository;
 import mk.ukim.finki.wp.lab.service.AuthorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
