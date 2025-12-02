@@ -5,7 +5,7 @@ import mk.ukim.finki.wp.lab.model.BookReservation;
 import mk.ukim.finki.wp.lab.repository.mock.InMemoryBookReservationRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public class InMemoryBookReservationRepositoryImpl implements InMemoryBookReservationRepository {
     @Override
     public BookReservation save(BookReservation bookReservation) {

@@ -7,6 +7,7 @@ import mk.ukim.finki.wp.lab.repository.mock.InMemoryBookRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Repository
 public class InMemoryBookRepositoryImpl implements InMemoryBookRepository {
@@ -35,11 +36,22 @@ public class InMemoryBookRepositoryImpl implements InMemoryBookRepository {
 
     @Override
     public Book edit(Long id, String title, String genre, double rating, Author author) {
-        return null;
+        int idx = IntStream.range(0, DataHolder.books.size())
+                .filter(i -> DataHolder.books.get(i).getId().equals(id))
+                .findFirst()
+                .orElse(-1);
+
+        if(idx == -1)
+            return null;
+
+        Book book = new Book(title, genre, rating);
+        book.setAuthor(author);
+        DataHolder.books.set(idx, book);
+        return book;
     }
 
     @Override
     public void delete(Long id) {
-
+        DataHolder.books.removeIf(book -> book.getId().equals(id));
     }
 }

@@ -42,7 +42,7 @@ public class BookServiceImpl implements BookService {
     public Book add(String title, String genre, double rating, Long authorId) {
         Author author = authorRepository.findById(authorId)
                 .orElseThrow(() -> new RuntimeException("Author not found"));
-        Book book = new Book(title, genre, rating);
+        Book book = new Book(title, genre, rating,author);
         return bookRepository.save(book);
     }
 
